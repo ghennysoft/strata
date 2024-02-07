@@ -1,0 +1,53 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block title %}Ressources humaines, emploi et opportunités{% endblock %}
+
+{% block content %}
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid p-0" style="background-image: url({% static 'img/emploi.jpg' %}); background-size: cover; margin-bottom: 6rem;;">
+            <div style="padding: 100px 5%; background-color: rgba(0, 0, 0, 0.3);">
+                <h3 class="text-white mb-4 px-2 py-3 text-center animated slideInDown">Strata-Emploi</h3>
+                <!-- <button class="btn btn-primary">Soumettre une main d'oeuvre</button> -->
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid">
+            <div class="container pb-5">
+                <div class="row justify-content-center m-0 box">
+                    <div class="col-lg-10 items">
+                        <div class="d-flex title">
+                            <h5 class="mb-"><a href="{% url 'home:emploi' %}" class="">Offres d'emploi</a></h5>
+                            <h5 class="mb-2"><a href="{% url 'home:appel' %}" class="">Appel d'offre</a></h5>
+                            <h5 class="mb-2"><a href="{% url 'home:assistance_emploi' %}" class="active">Assistance emploi</a></h5>
+                        </div>
+                        <hr class="mt-0">
+                        <div class="row m-0 detail wow fadeInUp mb-3" data-wow-delay=".6s">
+                            <p><strong>STRATA CONSULT</strong> fournit aux chercheurs d’emploi une gamme 
+                                complète de services d’assistance spécialisés pour l’obtention d’un job, allant de l’analyse et préparation du 
+                                dossier a l’encadrement et préparation des interviews.</p>
+                            <p>Parmi les services spécialisés offerts par nos équipes, 
+                                on compte :</p>
+                            <ul>
+                                <li>Analyse et classement des dossiers des candidats en besoin d’emploi</li>
+                                <li>Recherche des offres correspondants au profil du candidat</li>
+                                <li>Renforcement des capacités des candidats en insuffisances</li>
+                                <li>Préparation du dossier et soumission des candidatures</li>
+                                <li>Préparation et assistance aux tests d’embauche</li>
+                                <li>Préparation aux l’interviews</li>
+                                <li>Accompagnement professionnel des nouveaux recrutés</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block title %}Strata-Services{% endblock %}
+
+{% block content %}
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid p-0 text-center" style="background-image: url({% static 'img/partenariat.jpg' %}); background-size: cover; background-position: center; margin-bottom: 6rem;;">
+            <div style="padding: 100px 5%; background-color: rgba(0, 0, 0, 0.3);">
+                <h3 class="text-white mb-4 px-2 py-3 text-center animated slideInDown">Partenariat & Affiliation</h3>
+                <div class="d-flex justify-content-center">
+                    {% if is_comm %}
+                    <a href="{% url 'accounts:profile' request.user.username %}" class="btn btn-primary">Tableau de commissions</a>
+                    {% else %}
+                        {% if request.user.is_authenticated %}
+                        <form action="{% url 'home:commissionaire' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Devenir commissionnaire</button>
+                        </form>
+                        {% else %}
+                        <button type="submit" class="btn btn-primary commis-btn">Devenir commissionnaire</button>
+                        {% endif %}
+                        &nbsp;
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid">
+            <div class="container pb-5">
+                <div class="row justify-content-center m-0 box">
+                    <div class="col-lg-10 items">
+                        <div class="row m-0 wow fadeInUp mb-3 py-2" data-wow-delay=".6s">
+                            <p>
+                                Voulez-vous vous avoir des revenus recurent, vous créer un canal de remunération de plus, alors devenez partenaire Strata. 
+                                Le partenariat avec Strata est un programme de rémunération qui vous paie pour chaque mission que vous remplissez, un service à rendez, une personne que vous apportez, etc.
+                                ffres de services et/ou en vous aidant à trouver un prestataire de service selon vos bésoins.
+                                Dès votre adhésion à ce programme, vous aurez accès à une liste de ce que vous pouvez faire pour vous faire rémunerer, 
+                                ainsi qu'un tableau de bord où vous pourrez poursuivre votre évolution et votre argent. <br>
+                                Si vous êtes interessé, clique sur <a href="#"><u>Devenir commissionnaire</u></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+{% endblock %}
+

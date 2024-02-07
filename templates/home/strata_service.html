@@ -1,0 +1,47 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block title %}Strata-Services{% endblock %}
+
+{% block content %}
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid p-0 text-center" style="background-image: url({% static 'img/strata_entrepreneur.jpg' %}); background-size: cover; margin-bottom: 6rem;;">
+            <div style="padding: 100px 5%; background-color: rgba(0, 0, 0, 0.3);">
+                <h3 class="text-white mb-4 px-2 py-3 text-center animated slideInDown">Strata-Entrepreneur</h3>
+                <button class="btn btn-primary text-white inscrireService-btn">Inscrire mes services</button> &nbsp;
+                <button class="btn btn-primary text-white demanderService-btn">Demander un service</button>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid">
+            <div class="container pb-5">
+                <div class="row justify-content-center m-0 box">
+                    <div class="col-lg-10 items">
+                        <!-- <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="mb-4">Services rendus</h3>
+                        </div> -->
+                        <div class="row m-0 wow fadeInUp mb-3 py-2" data-wow-delay=".6s">
+                            <p>
+                                Avez-vous une entreprise, un service à rendre, des compétences ou besoin d'un service, cette éspace vous est dedié.
+                                Nous vous accompagnons dans vos projets, en promouvant vos offres de services et/ou en vous aidant à trouver un prestataire de service selon vos bésoins.
+                                L'dée ici est de vous permettre de bénéficier d'un accompagnement de vos projets, au moment où vous en avez le plus bésoin.
+                                Nous avons une seule et même mission double : accompagner le prestataires à trouver les consommateurs de leur servicesd'une part et le porteurs des besoins à 
+                                trouver des meilleurs prestataires pour une meilleure satisfaction.
+                                Vous êtes prestataire ou avez un bésoin quelconque, n'hésitez pas à faire appel à nous! <br>
+                                Si vous êtes interessé, clique sur <button class="btn btn-default myform-btn">Inscription</button> / <a href="#">Mon compte</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+{% endblock %}
+

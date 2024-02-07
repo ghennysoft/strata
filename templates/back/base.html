@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'includes/css.html' %}
+    <link href="{% static 'css/admin-css.css' %}" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
+    <div class="wrapper dashboard">
+        <div class="sidebar hide">
+            <div class="sidebar-brand">
+                <a href="{% url 'back:dashboard' %}">Admin</a>
+            </div>
+            <ul class="nav">
+                <li class="nav-item"><a href="{% url 'back:dashboard' %}" class="nav-link {% if request.path == '/back/' %}active{% endif %}">Dashboard</a></li>
+                <li class="nav-item"><a href="{% url 'back:users' %}" class="nav-link">Utilisateurs</a></li>
+                <li class="nav-item"><a href="{% url 'back:formations' %}" class="nav-link">Formations</a></li>
+                <li class="nav-item"><a href="{% url 'back:commandes' %}" class="nav-link">Commandes</a></li>
+                <li class="nav-item"><a href="{% url 'back:emplois' %}" class="nav-link">Offres d'emplois</a></li>
+                <li class="nav-item"><a href="{% url 'back:formulaires' %}" class="nav-link">Formulaires</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Partenariat</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Paramètres</a></li>
+            </ul>
+        </div>
+
+        <div class="main-admin full">
+            <div class="top">
+                {% if messages %}
+                {% for m in messages %}
+                <div class="alert alert-success m-0">{{m}}</div>
+                {% endfor %}
+                {% endif %}
+                <div class="row justify-content-between m-0 top-links">
+                    <div class="col-auto">
+                        <span class="d-sm-none p-2" id="admin-menu-bars"><i class="fa fa-bars"></i></span>
+                        <span><a href="{% url 'back:dashboard' %}">Administration</a> - <a href="{% url 'home:home' %}">Revenir sur le site</a></span>
+                    </div>
+                    <div class="col-auto">
+                        <span>{{request.user.email}}</span> &nbsp;-&nbsp;
+                        <a href="{% url 'accounts:logout' %}">Deconnexion</a>
+                    </div>
+                </div>
+                <hr class="m-0">
+                <div class="title">
+                    <h6>Tableau de bord</h6>
+                </div>
+                <hr class="m-0">
+            </div>
+
+            <div class="content p-3">
+                {% block content %}{% endblock %}
+            </div>
+
+            <div class="admin-footer">
+                <hr class="m-0">
+                <div class="d-flex justify-content-between p-3">
+                    <div class="left-side">Administration &copy;2024 Tout droits reservés.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h1>Vous n'êtes pas autorisé à accéder à cette page !</h1>
+    {% endif %}
+    {% else %}
+        <h1>Veillez vous connecter pour accéder à cette page !</h1>
+    {% endif %}
+
+    {% include 'includes/scripts.html' %}
+</body>
+</html>

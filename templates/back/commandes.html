@@ -1,0 +1,48 @@
+{% extends 'back/base.html' %}
+
+{% load static %}
+
+{% block title %}Formations{% endblock %}
+
+{% block content %}
+
+{% if commandes %}
+<div class="the-container">
+    <h4 class="the-container-title">Mes commandes</h4>
+    <div class="table-responsive px-3 mt-4">
+        <table class="table border bg-white">
+            <thead class="thead-light">
+                <tr>
+                    <th class="pb-3">Utilisateur</th>
+                    <th class="pb-3">Plateforme</th>
+                    <th class="pb-3">Lien</th>
+                    <th class="pb-3">Adresse</th>
+                    <th class="pb-3">Livraison</th>
+                    <th class="pb-3">Date</th>
+                </tr>
+            </thead>
+            <tbody>                
+            {% for item in commandes %}
+            <tr>
+                <td class="pb-3">{{item.user.username}}</td>
+                <td class="pb-3">{{item.plateforme}}</td>
+                <td class="pb-3">{{item.lien}}</td>
+                <td class="pb-3">{{item.adresse}}</td>
+                <td class="pb-3">{{item.livraison}}</td>
+                <td class="pb-3">{{item.date}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="container pb-5">
+    <div class="overflow-hidden">
+        <h4 class="mb-4">Mes Commandes</h4>
+    </div>
+    <h5 class="text-muted">Il n'y a aucune commandes en cours</h5>
+</div>
+{% endif %}
+
+{% endblock %}

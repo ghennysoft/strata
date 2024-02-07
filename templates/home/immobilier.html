@@ -1,0 +1,115 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block title %}Immobilier et investissement{% endblock %}
+
+{% block content %}
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid p-0" style="background-image: url({% static 'img/immo.webp' %}); background-size: cover; margin-bottom: 6rem; background-position: center -100px;">
+            <div style="padding: 100px 5%; background-color: rgba(0, 0, 0, 0.3);">
+                <h3 class="text-white mb-4 px-2 py-3 text-center animated slideInDown">Strata-Immo</h3>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid">
+            <div class="container pb-5">
+                <div class="overflow-hidden">
+                    <h3 class="mb-2">Services rendus</h3>
+                </div>
+                <div class="row m-0 box">
+                    <div class="col-lg-10 items">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>Service d’Études, conception, réalisation et exécution des projets d’investissement immobiliers</h6>
+                                        <small><i>Qui part de 
+                                            l’étude de votre dossier d’investissement immobilier a l’implantation du projet sur terrain (de l’idée au projet, 
+                                            et sa réalisation)</i></small>
+                                    </div>
+                                    <img src="{% static 'img/strata-immo/etude_immo.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>Service de facilitation immobilière avec une grande équipe des agents immobiliers pour la
+                                            facilitation de vos transactions immobilières [achat, vente, location ] des biens immobiliers</h6>
+                                    </div>
+                                </div>
+                                <img src="{% static 'img/strata-immo/facilitation_immo.jpg' %}" alt="">
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>Service HOME STAGING</h6>
+                                            <small><i>[mise en valeur des biens immobiliers]sur mesure en partenariat avec des
+                                                grands architectes et ingénieurs expérimentés, permettant l’aménagement de vos biens immobiliers et leur 
+                                                mise en valeur</i></small>
+                                    </div>
+                                </div>
+                                <img src="{% static 'img/strata-immo/home_staging.jpg' %}" alt="">
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>Des équipes d’ingénieurs BTP, génie civil, Géotechniciens, et artisans qualifiés</h6>
+                                            <small><i>Pour tous vos futurs 
+                                                travaux du simple aménagement à la construction avec devis précis contractuels, ce qui vous permettra de 
+                                                sécuriser votre investissement immobilier en toute tranquillité. Ceci accompagner d’une équipe de suivi de 
+                                                vos projets de constructions</i></small>
+                                    </div>
+                                </div>
+                                <img src="{% static 'img/strata-immo/ingenieurs_genie_civil.jpg' %}" alt="">
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>L’appui de juristes compétents</h6>
+                                            <small><i>Que ce soit Notaires, Avocats de la région et professionnels de 
+                                                l’Urbanisme, Géomètres ou Architectes pour la règlementation de vos titres immobiliers, car la 
+                                                réglementation évolue sans cesse</i></small>
+                                    </div>
+                                </div>
+                                <img src="{% static 'img/strata-immo/appui_juridique.jpg' %}" alt="">
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>Une équipe des experts Diagnostiqueurs Immobilier</h6>
+                                            <small><i>Pour l’estimation des valeurs de vos biens 
+                                                immobiliers</i></small>
+                                    </div>
+                                </div>
+                                <img src="{% static 'img/strata-immo/diagnostique_immo.jpg' %}" alt="">
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>Un service d’Évaluation et expertise des biens immobiliers</h6>
+                                    </div>
+                                </div>
+                                <img src="{% static 'img/strata-immo/evaluation_biens_immo.jpg' %}" alt="">
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <div class="bg-white py-4">
+                                    <div class="px-4 pb-0 py-2">
+                                        <h6>Un service de Conseils et orientations dans la transaction immobilière</h6>
+                                    </div>
+                                </div>
+                                <img src="{% static 'img/strata-immo/transaction_immo.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+{% endblock %}

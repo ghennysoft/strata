@@ -1,0 +1,552 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        {% include 'includes/css.html' %}
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        
+        <!-- Navbar Start -->
+        <div class="container-fluid">
+            <nav class="navbar navbar-dark navbar-expand-xxl align-items-center">
+                <div class="d-flex">
+                    <a href="{% url 'home:home' %}" class="d-flex align-items-center navbar-brand ">
+                        <img src="{% static 'img/logo.png' %}" style="width: 50px;" alt="">
+                        <span style="font-size: 1rem; color: #255085; padding: 0px 7px; border-left: 2px solid #255085;" class="d-none d-md-inline">STRATA CONSULT</span>
+                    </a>
+                    <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" id="navbarBtn" data-bs-target="#navbarCollapse" style="font-size: 0.95rem; border: 1px solid; border-left: 1px solid #bbb;">
+                        &nbsp;&nbsp;<span class="fa fa-bars" style="color: #255085;">&nbsp; MENU</span> 
+                    </button>
+        
+                    <div class="collapse navbar-collapse me-n3" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <div class="d-flex justify-content-between align-items-center px-2">
+                                <h5>MENU</h5>
+                                <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse"  id="navbarBtn" data-bs-target="#navbarCollapse">
+                                    <span class="fa fa-times text-dark"></span>
+                                </button>
+                            </div>
+                            <hr class="my-2 py-1">
+                            <a href="{% url 'home:home' %}" class="nav-item nav-link active">Accueil</a>
+                            <a href="{% url 'home:etude_sol' %}" class="nav-item nav-link">Geo-Strata</a>
+                            <a href="{% url 'home:emploi' %}" class="nav-item nav-link">Strata-Emploi</a>
+                            <a href="{% url 'home:immobilier' %}" class="nav-item nav-link">Strata-Immo</a>
+                            <a href="{% url 'home:entrepreneur' %}" class="nav-item nav-link">Strata-Entrepreneur</a>
+                            <a href="{% url 'home:formation' %}" class="nav-item nav-link">Strata-Formation</a>
+                            <a href="{% url 'home:achat' %}" class="nav-item nav-link">Facilitation achat en ligne</a>
+                            <a href="{% url 'home:service' %}" class="nav-item nav-link">Strata-Services</a>
+                            <a href="{% url 'home:service' %}" class="nav-item nav-link">Strata-Services</a>
+                            <a href="{% url 'home:partenariat' %}" class="nav-item nav-link">Partenariat & Affiliation</a>
+                            <a href="#footer" class="nav-item nav-link">A propos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons d-flex">
+                    <a href="#r" class="top-search-btn"><img src="{% static 'img/search.png' %}" alt=""> <span class="d-none d-md-inline">RECHERCHE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'accounts:profile' request.user.username %}"><img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">PROFILE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'accounts:logout' %}"><img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">DECONNEXION</span></a>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'back:dashboard' %}">&nbsp;&nbsp;&nbsp;&nbsp;<img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">ADMIN</span></a>
+                    {% endif %}
+                    {% else %}
+                    <a href="#login" class="login-btn d-flex"><img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">CONNEXION</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    {% endif %}
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+
+        {% block content %}{% endblock %}
+
+
+        <!-- GeoForm Start -->
+        <div id="geoForm" class="container-fluid form-hide mb-3">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <span>.</span>
+                    
+                </div>
+                <div class="row g-5 box animated slideInUp justify-content-center position-relative">
+                    <div class="col-lg-6 form bg-white" data-wow-delay=".5s" style="border-radius: 10px; margin-top: 0px; position: relative;;">
+                        <img src="{% static 'img/close.png' %}" alt="" class="geoForm-btn close-btn">
+                        <div class="py-2">
+                            <h2 class="mb-4" style="color: #255085;">Demander un devis</h2>
+                        </div>
+                        <form method="post" class="rounded contact-form mb-3">
+                            {% csrf_token %}
+                            <div class="mb-2">
+                                <input type="text" class="form-control p-1" placeholder="Quelle service ?" required>
+                            </div>
+                            <div class="mb-2">
+                                <textarea class="form-control w-100" rows="5" placeholder="Decrivez votre demande"></textarea>
+                            </div>
+                            <button class="btn btn-primary border-0 py-2 d-block w-100 mb-2" type="submit">Soumettre</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- GeoForm End -->
+
+        <!-- GeoForm Start -->
+        <div id="commisForm" class="container-fluid form-hide mb-3">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <span>.</span>
+                    
+                </div>
+                <div class="row g-5 box animated slideInUp justify-content-center position-relative">
+                    <div class="col-lg-6 form bg-white" data-wow-delay=".5s" style="border-radius: 10px; margin-top: 0px; position: relative;;">
+                        <img src="{% static 'img/close.png' %}" alt="" class="commis-btn close-btn">
+                        <div class="py-5 text-center">
+                            <h5 class="mb-4 p-2">Veillez vous connecter pour continuer</h5>
+                            <button class="btn btn-primary login-btn">Se connecter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- GeoForm End -->
+
+        <!-- Demande Main d'Oeuvre Start -->
+        <div id="demandeMainOeuvreForm" class="container-fluid form-hide mb-3">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <span>.</span>
+                    
+                </div>
+                <div class="row g-5 box animated slideInUp justify-content-center position-relative">
+                    <div class="col-lg-6 form bg-white" data-wow-delay=".5s" style="border-radius: 10px; margin-top: 0px;;">
+                        <img src="{% static 'img/close.png' %}" alt="" class="demandeMainOeuvre-btn close-btn">
+                        <div class="py-2">
+                            <h2 class="mb-4" style="color: #255085;">Demander une main d'oeuvre</h2>
+                        </div>
+                        <form method="post" class="rounded contact-form mb-3">
+                            {% csrf_token %}
+                            <div class="mb-2">
+                                <textarea class="form-control w-100" rows="5" placeholder="Decrivez votre demande"></textarea>
+                            </div>
+                            <button class="btn btn-primary border-0 py-2 d-block w-100 mb-2" type="submit">Soumettre</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Demande Main d'Oeuvre End -->
+
+        <!-- Inscription Service Start -->
+        <div id="inscrireServiceForm" class="container-fluid form-hide mb-3">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <span>.</span>
+                    
+                </div>
+                <div class="row g-5 box animated slideInUp justify-content-center position-relative">
+                    <div class="col-lg-8 form bg-white" data-wow-delay=".5s" style="border-radius: 10px; margin-top: 0px; position: relative;;">
+                        <img src="{% static 'img/close.png' %}" alt="" class="inscrireService-btn close-btn">
+                        <div class="pt-2">
+                            <h2 class="mb-4" style="color: #255085;">Inscription du service</h2>
+                        </div>
+                        <small><i>*Vous êtes prié de remplir complètement ce formulaire avec des information crédibles et sincères</i></small>
+                        <form method="post" class="rounded contact-form mb-3 mt-3">
+                            {% csrf_token %}
+                            <h6>Type de candidat</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="type" value="personne"> Personne physique <br>
+                                <input type="radio" class="form-check-input" name="type" value="morale"> Personne morale <br>
+                                <input type="radio" class="form-check-input" name="type" value="groupement"> Groupement d'operateurs économiques <br>
+                            </div>
+                            <h6>Identité</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Nom du candidat">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Représentant(legal)">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Adresse physique">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Code postal">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Localité/Ville">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Pays">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Téléphone">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Numéro Whatsapp">
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <h6>Civilité</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="civilite" value="monsieur"> Monsieur <br>
+                                <input type="radio" class="form-check-input" name="civilite" value="madame"> Madame
+                            </div>
+
+                            <h6>Presentation du service proposé</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Nom du service">
+                            </div>
+                            <div class="mb-2">
+                                <textarea class="form-control w-100" rows="5" placeholder="Brève présentation du service"></textarea>
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Années d'experience">
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Domaine d'expertise">
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Numéro de contact du préstataire">
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Personne de contact">
+                            </div>
+
+                            <h6>Légalement constitué ?</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="legal" value="oui"> Oui <br>
+                                <input type="radio" class="form-check-input" name="legal" value="non"> Non
+                            </div>
+
+                            <h6>Langue</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="langue" value="français"> Français <br>
+                                <input type="radio" class="form-check-input" name="langue" value="anglais"> Anglais
+                            </div>
+
+                            <h6>Images d'illustratation</h6>
+                            <div class="mb-2">
+                                <input type="file">
+                            </div>
+                            <button class="btn btn-primary border-0 py-2 d-block w-100 mb-2" type="submit">Soumettre</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Inscription Service End -->
+
+        <!-- Demander Service Start -->
+        <div id="demanderServiceForm" class="container-fluid form-hide mb-3">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <span>.</span>
+                    
+                </div>
+                <div class="row g-5 box animated slideInUp justify-content-center position-relative">
+                    <div class="col-lg-8 form bg-white" data-wow-delay=".5s" style="border-radius: 10px; margin-top: 0px; position: relative;;">
+                        <img src="{% static 'img/close.png' %}" alt="" class="demanderService-btn close-btn">
+                        <div class="pt-2">
+                            <h2 class="mb-4" style="color: #255085;">Soumission d'un besoin</h2>
+                        </div>
+                        <small><i>*Vous êtes prié de remplir complètement ce formulaire avec des information crédibles et sincères</i></small>
+                        <form method="post" class="rounded contact-form mb-3 mt-3">
+                            {% csrf_token %}
+                            <h6>Type de candidat</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="type" value="personne"> Personne physique <br>
+                                <input type="radio" class="form-check-input" name="type" value="morale"> Personne morale <br>
+                                <input type="radio" class="form-check-input" name="type" value="groupement"> Groupement d'operateurs économiques <br>
+                            </div>
+                            <h6>Identité</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Nom du candidat">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Adresse physique">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Localité/Ville">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Pays">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Téléphone">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="text" class="form-control" placeholder="Numéro Whatsapp">
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <h6>Civilité</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="civilite" value="monsieur"> Monsieur <br>
+                                <input type="radio" class="form-check-input" name="civilite" value="madame"> Madame
+                            </div>
+
+                            <h6>Presentation du service proposé</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Nom du service">
+                            </div>
+                            <div class="mb-2">
+                                <textarea class="form-control w-100" rows="5" placeholder="Brève présentation du besoin"></textarea>
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Numéro de contact du préstataire">
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Personne de contact">
+                            </div>
+
+                            <h6>Légalement constitué ?</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="legal" value="oui"> Oui <br>
+                                <input type="radio" class="form-check-input" name="legal" value="non"> Non
+                            </div>
+
+                            <h6>Langue</h6>
+                            <div class="mb-2">
+                                <input type="radio" class="form-check-input" name="langue" value="français"> Français <br>
+                                <input type="radio" class="form-check-input" name="langue" value="anglais"> Anglais
+                            </div>
+
+                            <h6>Période de prestation</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="intervalle de temps">
+                            </div>
+
+                            <h6>Date de debut probable</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="JJ/MM/AA">
+                            </div>
+
+                            <h6>Délaie le plus court</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="chiffre ou nombre de jours">
+                            </div>
+
+                            <h6>Délaie le plus long</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="chiffre ou nombre de jours">
+                            </div>
+
+                            <h6>Durée minimale</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="chiffre ou nombre de jours">
+                            </div>
+
+                            <h6>Durée maximale</h6>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="chiffre ou nombre de jours">
+                            </div>
+
+                            <h6>Images d'illustratation</h6>
+                            <div class="mb-2">
+                                <input type="file">
+                            </div>
+                            <button class="btn btn-primary border-0 py-2 d-block w-100 mb-2" type="submit">Soumettre</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Demander Service End -->
+
+        <!-- Entrepreneur Form Start -->
+        <div id="myform" class="container-fluid form-hide mb-3">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <span>.</span>
+                    
+                </div>
+                <div class="row g-5 box animated slideInUp justify-content-center position-relative">
+                    <!-- <div class="col-lg-10 d-none d-lg-block">
+                    </div> -->
+                    <div class="col-lg-10 form bg-white" data-wow-delay=".5s" style="border-radius: 10px; margin-top: 0px;;">
+                        <img src="{% static 'img/close.png' %}" alt="" class="myform-btn close-btn" id="login-close">
+                        <div class="py-2">
+                            <h2 class="mb-4" style="color: #255085;">Formulaire d'inscription</h2>
+                        </div>
+                        <form method="post" class="rounded contact-form mb-3">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-6 mb-2">
+                                    <input type="text" name="first_name" class="form-control p-1" placeholder="Prénom" required>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <input type="text" name="last_name" class="form-control p-1" placeholder="Nom" required>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <select name="statut" class="form-control">
+                                    <option value="" selected disabled>Votre Statut</option>
+                                    <option value="entreprise">Entreprise</option>
+                                    <option value="particulier">Particulier</option>
+                                    <option value="travailleur">Travailleur</option>
+                                    <option value="independant">Independant</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h6>Infos personnelles</h6>
+                                    <div class="mb-2">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" name="address" placeholder="Adresse" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" name="phone" placeholder="Tél" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="tel" class="form-control" name="mobile" placeholder="Mobile" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h6>Infos Entreprises</h6>
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" name="entreprise" placeholder="Entreprise" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" name="fonction" placeholder="Fonction" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" name="address" placeholder="Adresse" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="text" class="form-control" name="phone" placeholder="Tél" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h6>Financement</h6>
+                            <label for="entreprise"><input type="checkbox" name="entreprise" value="entreprise"> Entreprise</label> &nbsp;&nbsp;&nbsp;
+                            <label for="cpf"><input type="checkbox" name="cpf" value="cpf"> CPF</label> &nbsp;&nbsp;&nbsp;
+                            <label for="pole Emploi"><input type="checkbox" name="pole_emploi" value="pole Emploi"> Pole Emploi</label> &nbsp;&nbsp;&nbsp;
+                            <label for="autres"><input type="checkbox" name="autres" value="autres"> Autres</label> &nbsp;&nbsp;&nbsp;
+
+                            <button class="btn btn-primary border-0 py-2 d-block w-100 my-2" type="submit">Soumettre</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Entrepreneur Form End -->
+
+        <!-- SearchBar Start -->
+        <div id="SearchBar" class="container-fluid form-hide top-search-btn">
+            <div class="container">
+                <div class="search mb-2 text-center">
+                    <form action="{% url 'home:big-search' %}" method="get" class="w-100">
+                        <input type="text" name="query" placeholder="Tapez votre recherche..." style="width: 88%; padding: 10px 80px 10px 10px;">
+                        <button tupe="submit" style="width: 10%; padding: 10px 0px; background-color: #ff5950; color: #fff;"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- SearchBar End -->
+
+        <!-- Login Start -->
+        <div id="login" class="container-fluid form-hide">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <span>.</span>
+                    
+                </div>
+                <div class="row g-5 box wow fadeInUp justify-content-between">
+                    <div class="col-lg-6 d-none d-lg-block">
+                    </div>
+                    <div class="col-lg-6 form bg-white" data-wow-delay=".5s" style="border-radius: 10px;">
+                        <div class="d-flex justify-content-between align-items-center">
+                                <div class="py-2">
+                                    <h2 class="mb-4 animated slideInDown" style="color: #255085;">Connectez-vous</h2>
+                                </div>
+                                <img src="{% static 'img/close.png' %}" alt="" class="login-btn" id="login-close" style="width: 15px; height: 15px; margin-top: -15px; cursor: pointer;">
+                        </div>
+                        <form method="post" action="{% url 'accounts:login' %}" class="rounded contact-form mb-3">
+                            {% csrf_token %}
+                            <div class="mb-4">
+                                <input type="text" class="form-control p-3" name="username_email" placeholder="Identifiant" required>
+                            </div>
+                            <div class="mb-4">
+                                <input type="password" class="form-control p-3" name="password" placeholder="Mot de passe" required>
+                            </div>
+                            <button class="btn btn-primary border-0 py-2 d-block w-100 mb-2" type="submit">Se connecter</button>
+                            <p class="m-0 text-center">ou <a href="{% url 'accounts:register' %}"><small>S'enregistrer</small></a></p>
+                            <hr>
+                            <div class="text-center">
+                                <small>Se connecter avec</small><br>
+                                <button type="button" class="btn btn-danger d-block mt-2 w-100">Google</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Login End -->
+
+        <!-- Footer Start -->
+        <div id="footer" class="container-fluid footer py-0 wow fadeIn" data-wow-delay=".3s">
+            <div class="container py-5">
+                <div class="row justify-content-between g-4 footer-inner">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="text-white text-center fw-bold mb-4">A propos Strata.</h4>
+                            <div class="text-center">
+                                <small>Une entreprise dynamique, passionnée pour la recherche et l’innovation ; engager à apporter des solutions aux besoins de base des entreprises et des particuliers.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="text-white fw-bold mb-4">Liens utiles</h4>
+                            <div class="d-flex flex-column align-items-start">
+                                <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>A propos de nous</a>
+                                <a class="btn btn-link ps-0" href="{% url 'home:contact' %}"><i class="fa fa-check me-2"></i>Nous Contacter</a>
+                                <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Partenariat et affiliation</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="text-white fw-bold mb-4">Nos coordonnées</h4>
+                            <a href="" class="btn btn-link w-100 text-start ps-0 pb-3 border-bottom rounded-0"><i class="fa fa-map-marker-alt me-3"></i>Kinshasa RDC</a>
+                            <a href="" class="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i class="fa fa-phone-alt me-3"></i>+000 000 000 000</a>
+                            <a href="" class="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i class="fa fa-envelope me-3"></i>infos@strata-consult.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4 text-white" style="background-color: #303944">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                        <span>© 2023 Strata Consult, Tout droit réservé</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+        {% include 'includes/scripts.html' %}
+    </body>
+
+</html>

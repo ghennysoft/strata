@@ -1,0 +1,136 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block title %}Etude de sol, sous-sol, eau et environnement{% endblock %}
+
+{% block content %}
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid p-0 text-center" style="background-image: url({% static 'img/etude-sol.png' %}); background-size: cover; margin-bottom: 6rem;;">
+            <div style="padding: 100px 5%; background-color: rgba(0, 0, 0, 0.3);">
+                <h3 class="text-white mb-4 px-2 py-3 text-center animated slideInDown">Etude sols, sous-sols, eau et environnement</h3>
+                <button class="btn btn-primary text-white geoForm-btn">Demander un devis</button>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid">
+            <div class="container pb-5">
+                <div class="row justify-content-center m-0 box">
+                    <div class="col-lg-10 items">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="mb-4">Services rendus</h3>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <a href="#" class="text-dark">
+                                    <div class="bg-white py-4">
+                                        <div class="px-2 pb-0 py-2">
+                                            <h6>Service d’Études géotechniques</h6>
+                                            <small class="m-0 py-2"><b style="color: #265082;">STRATA CONSULT</b> fournit à ses 
+                                                clients et partenaire une gamme complète de services géotechniques spécialisés pour la planification, la 
+                                                conception et la mise en œuvre de projets de constructions, génie civile et d’ingénierie des sols</small>
+                                        </div>
+                                    </div>
+                                    <img src="{% static 'img/geo-strata/etude_geotechnique.jpg' %}" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <a href="#" class="text-dark">
+                                    <div class="bg-white py-4">
+                                        <div class="px-2 pb-0 py-2">
+                                            <h6>Service d’Études géologique et minière</h6>
+                                            <small class="m-0 py-2"><strong style="color: #265082;">STRATA CONSULT</strong> fournit à ses clients et partenaires une 
+                                                gamme de services géologiques spécialisés pour la planification, la conception et la mise en œuvre de projets 
+                                                minier</small>
+                                        </div>
+                                    </div>
+                                    <img src="{% static 'img/geo-strata/etude_miniere.jpg' %}" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <a href="#" class="text-dark">
+                                    <div class="bg-white py-4">
+                                        <div class="px-2 pb-0 py-2">
+                                            <h6>Service d’eau et environnement</h6>
+                                            <small class="m-0 py-2"><strong style="color: #265082;">STRATA CONSULT</strong> fournit à ses clients une gamme de services dans 
+                                                le domaines de l’eau et environnement pour la planification, la conception et la mise en œuvre de projets</small>
+                                        </div>
+                                    </div>
+                                    <img src="{% static 'img/geo-strata/eau_environnement.jpg' %}" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <a href="#" class="text-dark">
+                                    <div class="bg-white py-4">
+                                        <div class="px-2 pb-0 py-2">
+                                            <h6>Service de cartographie numérique</h6>
+                                            <small class="m-0 py-2"><strong style="color: #265082;">STRATA CONSULT</strong> fournit à ses clients et partenaire une gamme de 
+                                                services dans le domaines de la cartographie pour la planification, la conception et la mise en œuvre de 
+                                                projets</small>
+                                        </div>
+                                    </div>
+                                    <img src="{% static 'img/geo-strata/cartographie.jpg' %}" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                                <a href="#" class="text-dark">
+                                    <div class="bg-white py-4">
+                                        <div class="px-2 pb-0 py-2">
+                                            <h6>Service de location matériels géotechniques, géophysiques, geologiques,forage d’eau, topographique et 
+                                                cartographique</h6>
+                                                <small class="m-0 py-2"><strong style="color: #265082;">STRATA CONSULT</strong> fournit à ses clients et partenaire une gamme de matériels dans le 
+                                                    domaines de la cartographie, géotechniques, géophysiques, forage d’eau, topographié, etc., pour l’exécution 
+                                                    et la mise en œuvre de projets de ses partenaires</small>
+                                        </div>
+                                    </div>
+                                    <img src="{% static 'img/geo-strata/location_materiel.jpg' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="row m-0 galery-etude-sol mt-5 mb-3">
+                            <div class="col-12 px-1 pt-3">
+                                <h4 style="text-align: left;">Images d'illustration</h4>
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img1.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img2.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img3.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img4.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img5.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img6.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img7.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img8.jpg' %}" alt="">
+                            </div>
+                            <div class="col-4 p-0">
+                                <img src="{% static 'img/img1_.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+{% endblock %}
+

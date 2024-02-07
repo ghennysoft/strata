@@ -1,0 +1,266 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block title %}Strata Consult{% endblock %}
+
+{% block content %}
+
+        <!-- Carousel Start -->
+        <div class="hero-section container-fluid carousel px-0 position-relative">
+            
+            <div class="hero-content">
+                <div class="row m-0 h-100 align-items-end">
+                    <div class="col-12 mb-3 mx-auto">
+                        <div class="row align-items-end h-100">
+                            <div class="col-12">
+                                <div class="d-flex secteurs">
+                                    <a href="{% url 'home:etude_sol' %}" class="d-flex flex-column align-items-center text-center item">
+                                        <img src="{% static 'img/icone_earth.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Geo-Strata</h5>
+                                    </a>
+                                    <a href="{% url 'home:emploi' %}" class="d-flex flex-column align-items-center text-center item">
+                                        <img src="{% static 'img/icone_job.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Strata-Emploi</h5>
+                                    </a>
+                                    <a href="{% url 'home:formation' %}" class="d-flex flex-column align-items-center text-center item d-none d-md-block">
+                                        <img src="{% static 'img/icone_formation.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Strata-Formations</h5>
+                                    </a>
+                                    <a href="{% url 'home:appel' %}" class="d-flex flex-column align-items-center text-center item d-none d-md-block">
+                                        <img src="{% static 'img/icone_rh.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Strata-RH</h5>
+                                    </a>
+                                    <a href="{% url 'home:immobilier' %}" class="d-flex flex-column align-items-center text-center item d-none d-lg-block">
+                                        <img src="{% static 'img/icone_immo.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Strata-Immo</h5>
+                                    </a>
+                                    <a href="{% url 'home:service' %}" class="d-flex flex-column align-items-center text-center item d-none">
+                                        <img src="{% static 'img/icone_services.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Strata-Services</h5>
+                                    </a>
+                                    <a href="{% url 'home:entrepreneur' %}" class="d-flex flex-column align-items-center text-center item d-none">
+                                        <img src="{% static 'img/icone_entrepreneur.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Strata-Entrepreneur</h5>
+                                    </a>
+
+                                    <button class="d-flex flex-column align-items-center text-center item item-button position-relative" style="background: transparent; border: none; outline: none;">
+                                        <img src="{% static 'img/icone_plus.png' %}" width="70px" alt="" style="background-color: #ff5850; padding: 8px; border-radius: 50%;">
+                                        <h5 class="m-0">Plus...</h5>
+                                        <div class="sub-secteurs sub-hide">
+                                            <ul class="list-group"> 
+                                                <li class="list-group-item d-md-none" style="min-width: 300px;">
+                                                    <a href="#i" class="d-flex align-items-center text-center">
+                                                        <img src="{% static 'img/icone_formation.png' %}" width="40px" alt="" style="background-color: #ff5850; padding: 10px; border-radius: 50%; margin-right: 5px;;">
+                                                        <span>Strata-Formation</span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item d-md-none" style="min-width: 300px;">
+                                                    <a href="#i" class="d-flex align-items-center text-center">
+                                                        <img src="{% static 'img/icone_rh.png' %}" width="40px" alt="" style="background-color: #ff5850; padding: 10px; border-radius: 50%; margin-right: 5px;;">
+                                                        <span>Strata-RH</span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item d-lg-none" style="min-width: 300px;">
+                                                    <a href="{% url 'home:immobilier' %}" class="d-flex align-items-center text-center">
+                                                        <img src="{% static 'img/icone_immo.png' %}" width="40px" alt="" style="background-color: #ff5850; padding: 10px; border-radius: 50%; margin-right: 5px;;">
+                                                        <span>Strata-Immo</span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item" style="min-width: 300px;">
+                                                    <a href="{% url 'home:service' %}" class="d-flex align-items-center text-center">
+                                                        <img src="{% static 'img/icone_services.png' %}" width="40px" alt="" style="background-color: #ff5850; padding: 10px; border-radius: 50%; margin-right: 5px;;">
+                                                        <span>Strata-Services</span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item" style="min-width: 300px;">
+                                                    <a href="{% url 'home:entrepreneur' %}" class="d-flex align-items-center text-center">
+                                                        <img src="{% static 'img/icone_entrepreneur.png' %}" width="40px" alt="" style="background-color: #ff5850; padding: 10px; border-radius: 50%; margin-right: 5px;;">
+                                                        <span>Strata-Entrepreneur</span>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item" style="min-width: 300px;">
+                                                    <a href="{% url 'home:partenariat' %}" class="d-flex align-items-center text-center">
+                                                        <img src="{% static 'img/icone_entrepreneur.png' %}" width="40px" alt="" style="background-color: #ff5850; padding: 10px; border-radius: 50%; margin-right: 5px;;">
+                                                        <span>Partenariat et Affiliation</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-blur"></div>
+            </div>
+
+            <div id="carouselId" class="carousel slide h-100" data-bs-ride="carousel">
+                <div class="carousel-inner h-100" role="listbox">
+                    <div class="carousel-item active" style="width: 100%; height: 100%; background-image: url(../../static/img/geo-strata.png); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Geo-Strata</h4>
+                            <p>Pour les études des sols, sous-sol et eau</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(../../static/img/emploi.jpg); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Strata-Emploi</h4>
+                            <p>Facilitation et opportunités d’emploi et stages</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(../../static/img/strata-formation.png); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Strata-Formation</h4>
+                            <p>Formations et renforcement de capacités</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(../../static/img/strata-rh.png); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Strata-RH</h4>
+                            <p>Gestion des ressources humaines</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(../../static/img/immo.webp); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Strata-Immo</h4>
+                            <p>Business et investissements immobilier</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(../../static/img/strata-formation.png); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Strata-Service</h4>
+                            <p>Prestation des services et main d'œuvre</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(../../static/img/strata_entrepreneur.jpg); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Strata-Entrepreneur</h4>
+                            <p>L'orientation et assistance entrepreneurial.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(../../static/img/partenariat.jpg); background-size: cover;">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" style="background-color: rgba(0, 0, 0, .4);">
+                            <h4 class="text-white mb-2" style="font-size: 3rem;">Partenariat et affiliation</h4>
+                            <p>Strata et ses partenaires</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Carousel End -->
+
+        <!-- Content Start -->
+        <div class="container-fluid pt-5">
+            <div class="container py-5">
+                <div class="about-item overflow-hidden text-center">
+                    <h2 class="mb-5">Nos secteurs d'activités</h2>
+                </div>
+                <div class="row m-0">
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:etude_sol' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Géo-Strata</h6>
+                                    <small><i>Pour les études des sols, sous-sol et eau</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/geo-strata.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:emploi' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Strata-Emploi</h6>
+                                    <small><i>Facilitation et opportunités d’emploi et stages</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/emploi.jpg' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:formation' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Strata-Formation</h6>
+                                    <small><i>Formationet renforcement des capacités</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/strata-formation.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:emploi' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Strata-RH</h6>
+                                    <small><i>Gestion des ressources humaines</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/strata-rh.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:immobilier' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Strata-Immo</h6>
+                                    <small><i>Businness et investissement immobilier</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/immo.webp' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:service' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Strata-Service</h6>
+                                    <small><i>Prestationde service et main d'oeuvre</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/strata-services.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:entrepreneur' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Strata-Entrepreneur</h6>
+                                    <small><i>L'orientationet assistance entrepreneuriale</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/strata_entrepreneur.jpg' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="{% url 'home:partenariat' %}" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Partenariat et affilliation</h6>
+                                    <small><i>Strata et ses partenaires</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/partenariat.jpg' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3 blog-item wow fadeInUp" data-wow-delay=".6s">
+                        <a href="#" class="text-dark">
+                            <div class="bg-white text-center py-4">
+                                <div class="px-4 pb-0 py-2">
+                                    <h6>Plus de services</h6>
+                                    <small><i>Rechercher un service</i></small>
+                                </div>
+                            </div>
+                            <img src="{% static 'img/strata-plus.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content End -->
+
+{% endblock %}

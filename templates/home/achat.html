@@ -1,0 +1,112 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block title %}Facilitation achat national et international{% endblock %}
+
+{% block content %}
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid p-0" style="background-image: url({% static 'img/img7.jpg' %}); background-size: cover; margin-bottom: 6rem;;">
+            <div style="padding: 100px 5%; background-color: rgba(0, 0, 0, 0.3);">
+                <h3 class="text-white mb-4 px-2 py-3 text-center animated slideInDown">Achat en ligne</h3>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid">
+            <div class="container pb-5">
+                <div class="row justify-content-center m-0">
+                    <div class="col-lg-10 achat">
+                        <div class="row m-0 detail wow fadeInUp mb-3" data-wow-delay=".6s">
+                            <div class="col-12">
+                                <div class="overflow-hidden">
+                                    <h3 class="mb-2">Plateformes de vente en ligne</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 p-1 mb-2">
+                                <img src="{% static 'img/alibaba.png' %}" alt="">
+                            </div>
+                            <div class="col-md-6 col-lg-4 p-1 mb-2">
+                                <img src="{% static 'img/amazon.jpg' %}" alt="">
+                            </div>
+                            <div class="col-md-6 col-lg-4 p-1 mb-2">
+                                <img src="{% static 'img/ebay.png' %}" alt="">
+                            </div>
+                        </div>
+
+
+                        <form action="/achat/" method="post" class="achat-form bg-white p-3 mt-2 mb-5 rounded">
+                            <h4 class="mb-3">Passez votre commande</h4>
+                            {% csrf_token %}
+                            <p><select name="plateforme" class="form-control p-3" required="" id="id_plateforme">
+                                <option value="" selected="">Choisissez une plateforme</option>
+
+                                <option value="amazone">Amazone</option>
+
+                                <option value="alibaba">Alibaba</option>
+
+                                <option value="ebay">Ebay</option>
+
+                               </select>
+                            </p>
+                            <p><input type="text" name="lien" class="form-control p-3" placeholder="Inserez le lien de l'article" maxlength="300" required="" id="id_lien"></p>
+                            <p><input type="text" name="adresse" class="form-control p-3" placeholder="Inserez l'adresse de livraison" maxlength="200" required="" id="id_adresse"></p>
+                            <button type="submit" style="background-color: transparent; border: 1px solid #aaa; padding: 8px 30px; border-radius: 8px;">Commander</button>
+                        </form>
+
+                        <h6>Vous avez besoin d'un service ? <a href="#"><u>demander un service</u></a></h6>
+
+                        <div class="row m-0 detail wow fadeInUp mt-5 mb-3" data-wow-delay=".6s">
+                            <div class="col-12">
+                                <div class="overflow-hidden">
+                                    <h4 class="mb-2">Boutiques partenaires</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 p-1 mb-2">
+                                <img src="{% static 'img/b1.jpeg' %}" alt="">
+                            </div>
+                            <div class="col-md-6 col-lg-4 p-1 mb-2">
+                                <img src="{% static 'img/b2.jpeg' %}" alt="">
+                            </div>
+                            <div class="col-md-6 col-lg-4 p-1 mb-2">
+                                <img src="{% static 'img/b3.jpeg' %}" alt="">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 text-center mt-2">Ajouter ma boutique</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="col-lg-4">
+                        <aside>
+                            <ul class="list-group border-0">
+                                <li class="list-group-item"><button class="btn btn-primary">Demander un service en ligne</button></li>
+                                <li class="list-group-item"><button class="btn btn-primary">Trouver une plateforme d’achat en ligne</button></li>
+                                <li class="list-group-item"><button class="btn btn-primary">Réferencer ma boutique</button></li>
+                            </ul>
+                        </aside>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+
+        <!-- Message Start -->
+        {% if messages %}
+            {% for message in messages %}
+                <div style="position: fixed; bottom: 30px; width: 100%;">
+                    <div class="d-flex justify-content-center">
+                        <span class="alert alert-success text-center">{{message}}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <!-- Message End -->
+
+{% endblock %}
