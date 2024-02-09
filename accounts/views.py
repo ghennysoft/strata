@@ -15,34 +15,40 @@ User = get_user_model()
 
 def Register(request):
     template_name = 'accounts/register.html'
-    if request.method == "POST":
-        form = UserUpdateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
+    if request.method == 'POST':
+        email = request.POST['email']   
+        phone = request.POST['phone']
+        full_name = request.POST['full_name']
+        birthday = request.POST['birthday']
+        gender = request.POST['gender']
+        profile = request.POST['profile']
+        password = request.POST['password']
+        if User.objects.filter(email=email):
+            messages.warning(request, "Cet email existe déjà")
+            return redirect('accounts:register')
         else:
-            messages.error(request, "Données incorrectes! Réessayez")
-            form = UserUpdateForm()
-            context = {
-                'form': form,
-            }
-            return render(request, template_name, context)
-    form = UserUpdateForm()
-    context = {
-        'form': form,
-    }
-    return render(request, template_name, context)
+            user = User.objects.create_user(email, password)
+            user.phone = phone
+            user.full_name = full_name
+            user.birthday = birthday
+            user.gender = gender
+            user.profile = profile
+            user.save()
+            if user:
+                auth = authenticate(username=user.email, password=password)
+                if auth is not None:
+                    login(request, auth)
+                    messages.success(request, "Enregistrement réussit")
+                    return redirect('home:home')
+    return render(request, template_name, {})
 
 
 def Login(request):
-    username_email = request.POST.get('username_email')
+    email = request.POST.get('email')
     password = request.POST.get('password')
     if request.method=='POST':
-        if(User.objects.filter(username=username_email).exists()):
-            user = authenticate(username=username_email, password=password)
-        elif(User.objects.filter(email=username_email).exists()):
-            user = User.objects.get(email=username_email)
-            user = authenticate(username=user.username, password=password)
+        if(User.objects.filter(email=email).exists()):
+            user = authenticate(username=email, password=password)
         else:
             messages.error(request, "Données incorrects! Réessayez")
             return redirect('home:home')
@@ -63,8 +69,8 @@ def Logout(request):
 
 
 @login_required
-def Profile(request, username):
-    user = get_object_or_404(User, username=username)
+def Profile(request, pk):
+    user = get_object_or_404(User, pk=pk)
     comms = Commissionaire.objects.all()
     is_comm = False
     for item in comms:
@@ -79,12 +85,15 @@ def Profile(request, username):
 
 
 @login_required
-def UpdateProfile(request, username):
+def UpdateProfile(request, pk):
     if request.method == 'POST':
         form = UserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('accounts:profile', args=[username]))
+            return HttpResponseRedirect(reverse('accounts:profile', args=[pk]))
+        else:
+            messages.error(request, "Erreur de mise à jour! Réessayez")
+            return HttpResponseRedirect(reverse('accounts:update_profile', args=[pk]))
     else:
         form = UserUpdateForm(instance=request.user)
     return render(request, 'accounts/update_profile.html', {'form': form})

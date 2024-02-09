@@ -10,7 +10,7 @@
     <body style="background-image: url({% static 'img/logo.png' %}); background-repeat: no-repeat; background-size: contain;">
         
         <!-- Register Start -->
-        <div class="container-fluid p-3" style="background: rgba(0, 0, 0, .5); position: relative;">
+        <div class="container-fluid" style="background: rgba(0, 0, 0, .5); position: relative;">
             <div class="container">
                 <div class="row g-5 box wow fadeInUp justify-content-between py-3">
                     <div class="col-lg-6 d-none d-lg-block">
@@ -27,16 +27,13 @@
                         <form method="post" class="rounded contact-form mb-3">
                             {% csrf_token %}
                             <div class="mb-4">
-                                {{form.full_name}}
+                                <input type="text" name="full_name" class="form-control p-3" placeholder="Nom complet" required>
                             </div>
                             <div class="mb-4">
-                                {{form.username}}
+                                <input type="email" name="email" class="form-control p-3" placeholder="Email" required>
                             </div>
                             <div class="mb-4">
-                                {{form.email}}
-                            </div>
-                            <div class="mb-4">
-                                {{form.phone}}
+                                <input type="text" name="phone" class="form-control p-3" placeholder="Téléphone" required>
                             </div>
                             <div class="mb-4">
                                 <select name="gender" class="form-control p-3" required="" id="id_gender">
@@ -49,7 +46,7 @@
                                 </select>
                             </div>
                             <div class="mb-4">
-                                {{form.birthday}}
+                                <input type="date" name="birthday" class="form-control p-3" placeholder="Date de naissance" required>
                             </div>
                             <div class="mb-4">
                                 <select name="profile" class="form-control p-3" required="" id="id_profile">
@@ -64,7 +61,7 @@
                                   </select>
                             </div>
                             <div class="mb-4">
-                                {{form.password}}
+                                <input type="password" name="password" class="form-control p-3" placeholder="Mot de passe" required>
                             </div>
                             <button class="btn btn-primary border-0 py-2 px-3 d-block w-100 text-center mb-1" type="submit">S'enregistrer</button>
                             <p class="text-center">

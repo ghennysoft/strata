@@ -11,14 +11,16 @@
                             <h5 class="mb-4">Mettre à jour le profile</h5>
                         </div>
                         <div class="row m-0 box">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <span class="alert alert-danger">{{message}}</span>
+                                {% endfor %}
+                            {% endif %}
                             <div class="col-lg-7">
                                 <form method="post" class="rounded contact-form mb-3">
                                     {% csrf_token %}
                                     <div class="mb-4">
                                         {{form.full_name}}
-                                    </div>
-                                    <div class="mb-4">
-                                        {{form.username}}
                                     </div>
                                     <div class="mb-4">
                                         {{form.email}}
@@ -49,7 +51,7 @@
                                           
                                             <option value="Partenaire">Partenaire</option>
                                           
-                                          </select>
+                                        </select>
                                     </div>
                                     <button class="btn btn-primary border-0 py-2 px-3 d-block w-100 text-center mb-1" type="submit">Mofifier</button>
                                 </form>

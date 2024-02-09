@@ -15,7 +15,7 @@
                         <div class="d-flex justify-content-end">
                             <i class="fa fa-times profile-menu-btn p-3"></i>
                         </div>
-                        <li class="list-group-item"><a href="{% url 'accounts:profile' request.user.username %}" class="active">Profile</a></li>
+                        <li class="list-group-item"><a href="{% url 'accounts:profile' request.user.pk %}" class="active">Profile</a></li>
                         <li class="list-group-item"><a href="{% url 'accounts:commandes' %}">Mes commandes</a></li>
                         <li class="list-group-item"><a href="{% url 'accounts:formations' %}">Mes formations</a></li>
                         <li class="list-group-item"><a href="#">Offres d'emplois</a></li>

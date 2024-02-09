@@ -8,15 +8,11 @@
 
                     <div class="container pb-5">
                         <div class="overflow-hidden">
-                            <h5 class="mb-4">Informations du profile &nbsp;&nbsp;&nbsp; <a href="{% url 'accounts:update_profile' request.user.username %}"><i class="fa fa-edit"></i></a></h5>
+                            <h5 class="mb-4">Informations du profile &nbsp;&nbsp;&nbsp; <a href="{% url 'accounts:update_profile' request.user.pk %}"><i class="fa fa-edit"></i></a></h5>
                         </div>
                         <div class="row m-0 box">
                             <div class="col-12 items">
                                 <table>
-                                    <tr>
-                                        <td class="pb-3">Identifiant</td>
-                                        <td class="pb-3">&nbsp;&nbsp;&nbsp;&nbsp; {{request.user.username}}</td>
-                                    </tr>
                                     <tr>
                                         <td class="pb-3">Nom complet</td>
                                         <td class="pb-3">&nbsp;&nbsp;&nbsp;&nbsp; {{request.user.full_name}}</td>
