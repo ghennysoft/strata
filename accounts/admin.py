@@ -6,7 +6,7 @@ from .models import Commissionaire
 
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
-        (None, {'fields': ('username', 'email', 'password')}),
+        (None, {'fields': ('email', 'password')}),
         (('Personnal Info'), {'fields': ('full_name', 'phone', 'gender', 'birthday', 'profile')}),
         (('Permissions'), {'fields': ('is_superuser', 'is_staff', 'is_active', 'groups', 'user_permissions')}),
         (('Importants dates'), {'fields': ('last_login', 'date_joined')}),
@@ -16,12 +16,12 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets =(
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'email', 'password1', 'password2'),
+            'fields': ('email', 'password1', 'password2'),
         }),
     ) 
-    list_display = ('username','email', 'full_name', 'is_staff')
-    search_fields = ('username', 'email', 'full_name')
-    ordering = ('username',)
+    list_display = ('email', 'full_name', 'is_staff')
+    search_fields = ('email', 'full_name')
+    ordering = ('email',)
 
 
 admin.site.register(get_user_model(), CustomUserAdmin)
