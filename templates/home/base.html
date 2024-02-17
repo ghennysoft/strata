@@ -11,7 +11,7 @@
         
         <!-- Navbar Start -->
         <div class="container-fluid">
-            <nav class="navbar navbar-dark navbar-expand-xxl align-items-center">
+            <nav class="navbar navbar-dark  align-items-center">
                 <div class="d-flex">
                     <a href="{% url 'home:home' %}" class="d-flex align-items-center navbar-brand ">
                         <img src="{% static 'img/logo.png' %}" style="width: 50px;" alt="">
@@ -46,15 +46,15 @@
                 </div>
 
                 <div class="buttons d-flex">
-                    <a href="#r" class="top-search-btn"><img src="{% static 'img/search.png' %}" alt=""> <span class="d-none d-md-inline">RECHERCHE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#r" class="top-search-btn"><i class="fa fa-search"></i> <span class="d-none d-md-inline"> RECHERCHE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
                     {% if user.is_authenticated %}
-                    <a href="{% url 'accounts:profile' request.user.pk %}"><img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">PROFILE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="{% url 'accounts:logout' %}"><img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">DECONNEXION</span></a>
+                    <a href="{% url 'accounts:profile' request.user.pk %}"><i class="fa fa-user"></i> <span class="d-none d-md-inline"> PROFILE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out-alt"></i> <span class="d-none d-md-inline"> DECONNEXION</span></a>
                     {% if user.is_superuser %}
-                    <a href="{% url 'back:dashboard' %}">&nbsp;&nbsp;&nbsp;&nbsp;<img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">ADMIN</span></a>
+                    <a href="{% url 'back:dashboard' %}">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-cpanel"></i> <span class="d-none d-md-inline"> ADMIN</span></a>
                     {% endif %}
                     {% else %}
-                    <a href="#login" class="login-btn d-flex"><img src="{% static 'img/user.png' %}" alt=""> <span class="d-none d-md-inline">CONNEXION</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#login" class="login-btn d-flex"><i class="fa fa-sign-in-alt"></i> <span class="d-none d-md-inline"> CONNEXION</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
                     {% endif %}
                 </div>
             </nav>
