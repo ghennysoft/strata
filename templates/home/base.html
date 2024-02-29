@@ -547,6 +547,18 @@
         <!-- Copyright End -->
 
         {% include 'includes/scripts.html' %}
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                var splide = new Splide('.hero-content', {
+                    start: 1,
+                    perPage: 1,
+                    autoplay: true,
+                    interval: 3000,
+                });
+                splide.mount();
+            })
+        </script>
     </body>
 
 </html>

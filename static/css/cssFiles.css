@@ -297,14 +297,8 @@ html, body {
     overflow: hidden;
 }
 
-.hero-content {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9;
+.hero-content .item {
+    height: 500px;
 }
 
 .hero-content .search {
@@ -1072,137 +1066,6 @@ html, body {
 }
 /*** Dash End ***/
 
-
-/*** Team Start ***/
-.team-item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.team-item .team-icon {
-    position: absolute;
-    top: 15px;
-    right: -80px;
-    rotate: -30deg;
-    transition: .5s;
-    visibility: hidden;
-}
-
-.team-item:hover .team-icon {
-    visibility: visible;
-    margin-right: 95px;
-    rotate: 0deg;
-}
-
-.team-item .team-icon .btn {
-    padding: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 35px;
-}
-
-.team-item .team-content {
-    box-shadow: inset 0 0 0 0 var(--bs-dark);
-    transition: 1s;
-    
-}
-
-.team-item:hover .team-content {
-    box-shadow: inset 550px 0 0 0 var(--bs-dark);
-    color: var(--bs-primary) !important;
-}
-/*** Team End ***/
-
-/*** testimonial Start ***/
-.testimonial-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: var(--bs-light);
-    z-index: 1;
-}
-
-.testimonial-content::before {
-    content: "";
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: 50px;
-    bottom: -15px;
-    rotate: 45deg;
-    z-index: -5;
-    background: var(--bs-light);
-}
-
-.testimonial-carousel {
-    position: relative;
-    padding-left: 60px;
-    padding-right: 60px;
-}
-
-.testimonial-carousel .owl-nav .owl-prev,
-.testimonial-carousel .owl-nav .owl-next {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 60px;
-    height: 40px;
-    background: var(--bs-primary);
-    color: var(--bs-dark);
-    font-size: 22px;
-    top: 14%;
-    left: 0px;
-    border-radius: 30px 0 0 30px;
-    box-shadow: inset 0 0 0 0 var(--bs-dark);
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-nav .owl-prev:hover {
-    box-shadow: inset 200px 0 0 0 var(--bs-dark);
-    color: var(--bs-primary) !important;
-}
-
-.testimonial-carousel .owl-nav .owl-next {
-    left: auto;
-    right: 0px;
-    border-radius: 0 30px 30px 0;
-}
-
-.testimonial-carousel .owl-nav .owl-next:hover {
-    box-shadow: inset 200px 0 0 0 var(--bs-dark);
-    color: var(--bs-primary) !important;
-}
-
-.testimonial-carousel .owl-dots {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 15px;
-    height: 15px;
-    background: var(--bs-secondary);
-    border-radius: 15px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    width: 30px;
-    background: var(--bs-primary);
-}
-
-/*** testimonial End ***/
 
 
 /*** Contact Start ***/
