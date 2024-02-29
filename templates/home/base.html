@@ -10,7 +10,7 @@
     <body>
         
         <!-- Navbar Start -->
-        <div class="container-fluid">
+        <div class="container-fluid p-0 ">
             <nav class="navbar navbar-dark  align-items-center">
                 <div class="d-flex">
                     <a href="{% url 'home:home' %}" class="d-flex align-items-center navbar-brand ">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="buttons d-flex">
+                <div class="buttons d-flex align-items-center">
                     <a href="#r" class="top-search-btn"><i class="fa fa-search"></i> <span class="d-none d-md-inline"> RECHERCHE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
                     {% if user.is_authenticated %}
                     <a href="{% url 'accounts:profile' request.user.pk %}"><i class="fa fa-user"></i> <span class="d-none d-md-inline"> PROFILE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -551,7 +551,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function(){
                 var splide = new Splide('.hero-content', {
-                    start: 1,
+                    type: "loop",
                     perPage: 1,
                     autoplay: true,
                     interval: 3000,
