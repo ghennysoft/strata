@@ -301,6 +301,14 @@ html, body {
     height: 500px;
 }
 
+.hero-content .item a {
+    background-color: #255085;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
 .hero-content .search {
     padding: 5px;
     width: 80%;
